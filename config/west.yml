@@ -68,7 +68,7 @@ manifest:
     # ---- third-party helpers still needed by this firmware ----
     - name: zmk-dongle-display
       remote: josephdburdick
-      revision: eight-ball-stage
+      revision: main
     - name: zmk-board-eyelash
       remote: a741725193
       revision: v4.0
