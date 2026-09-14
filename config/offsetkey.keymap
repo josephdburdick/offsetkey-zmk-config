@@ -33,6 +33,19 @@
 };
 
 / {
+    scroll_encoder: scroll_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        tap-ms = <100>;
+    };
+
+    zoom_encoder: zoom_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&kp LG(EQUAL)>, <&kp LG(MINUS)>;
+    };
+
     behaviors {
         ltq: ltq {
             compatible = "zmk,behavior-hold-tap";
@@ -76,7 +89,7 @@
             >;
 
             label = "layer0";
-            sensor-bindings = <&rsr_vol>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         layer_1 {
@@ -104,7 +117,7 @@
             >;
 
             label = "layer2";
-            sensor-bindings = <&rsr_vol>;
+            sensor-bindings = <&zoom_encoder>;
         };
 
         layer_3 {
