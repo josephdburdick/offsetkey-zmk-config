@@ -15,6 +15,7 @@
 / {
 	chosen {
         zmk,underglow = &led_strip;
+        zmk,dongle-display-pointer = &trackball_split;
         zmk,kscan = &mock_kscan;
         zephyr,display = &oled;
     };
