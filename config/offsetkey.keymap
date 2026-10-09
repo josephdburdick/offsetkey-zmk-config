@@ -73,6 +73,11 @@
             bindings = <&bootloader>;
             key-positions = <0 11>;
         };
+
+        flip_display {
+            bindings = <&dflip>;
+            key-positions = <0 13>;
+        };
     };
 
     keymap {
