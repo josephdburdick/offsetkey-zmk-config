@@ -19,6 +19,11 @@
         zmk,kscan = &mock_kscan;
         zephyr,display = &oled;
     };
+    // Drops directionless trackball jitter; see src/input_processor_motion_gate.c
+    motion_gate: motion_gate {
+        compatible = "zmk,input-processor-motion-gate";
+        #input-processor-cells = <0>;
+    };
     mock_kscan: kscan_0 {
         compatible = "zmk,kscan-mock";
         columns = <0>;
@@ -82,12 +87,12 @@
 &trackball_listener {
     status = "okay";
     device = <&trackball_split>;
-    input-processors = <&mouse_runtime_input_processor>;
+    input-processors = <&motion_gate &mouse_runtime_input_processor>;
 
     scroller {
         layers = <1>;
         input-processors =
-            <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
+            <&motion_gate &zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
             <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
     };
 };

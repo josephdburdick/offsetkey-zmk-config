@@ -1,0 +1,27 @@
+description: |
+  Drops pointer motion that wanders without direction, such as jitter from a
+  resting trackball. Keeps a moving average of the X/Y deltas and of their
+  magnitudes; motion passes only while the net average is a large enough share
+  of the path average, i.e. while the ball heads somewhere.
+
+compatible: "zmk,input-processor-motion-gate"
+
+include: ip_zero_param.yaml
+
+properties:
+  smoothing-shift:
+    type: int
+    default: 3
+    description: Moving-average weight of each new sample is 1/2^shift.
+  open-percent:
+    type: int
+    default: 75
+    description: Net/path percentage at which a closed gate opens.
+  close-percent:
+    type: int
+    default: 50
+    description: Net/path percentage below which an open gate closes.
+  idle-ms:
+    type: int
+    default: 500
+    description: Gap between events that resets the averages and closes the gate.

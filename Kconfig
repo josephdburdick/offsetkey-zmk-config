@@ -1,0 +1,5 @@
+config ZMK_INPUT_PROCESSOR_MOTION_GATE
+    bool "Motion gate input processor"
+    default y
+    depends on DT_HAS_ZMK_INPUT_PROCESSOR_MOTION_GATE_ENABLED
+    depends on ZMK_POINTING
