@@ -6,8 +6,7 @@ include:
   - board: eyelash_nano
     shield: offsetkey_central_dongle dongle_display
     snippet: studio-rpc-usb-uart
-    # No deep sleep: the dongle has no keys to wake it, so it would stay off until USB power returns
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n -DCONFIG_ZMK_SLEEP=n
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: offsetkey_dongle
   - board: eyelash_nano
     shield: settings_reset
